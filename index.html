@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lotto Number Picker</title>
+</head>
+<body>
+  <h1>Lotto Number Picker</h1>
+  <button onclick="pickRandomNumbers()">Pick 6 Random Numbers</button>
+  <p>Random Numbers: <span id="randomNumbers"></span></p>
+
+  <script>
+    function pickRandomNumbers() {
+      const minNumber = 1;
+      const maxNumber = 59;
+      const numberOfNumbers = 6;
+      const randomNumbers = [];
+
+      for (let i = 0; i < numberOfNumbers; i++) {
+        let randomNumber;
+        do {
+          randomNumber = Math.floor(Math.random() * maxNumber) + minNumber;
+        } while (randomNumbers.includes(randomNumber));
+
+        randomNumbers.push(randomNumber);
+      }
+
+      randomNumbers.sort((a, b) => a - b); // Sort the numbers in ascending order
+      document.getElementById('randomNumbers').textContent = randomNumbers.join(', ');
+    }
+  </script>
+</body>
+</html>
