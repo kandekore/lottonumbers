@@ -1,6 +1,5 @@
 # Lotto Number Picker
 
-![Lotto Number Picker](random-number-picker.png)
 
 The "Lotto Number Picker" is a web application that allows you to generate sets of 6 random numbers between 1 and 59. Each time you click the "Pick 6 Random Numbers" button, a new set of unique numbers is generated and displayed on the page. The application also stores all the generated sets in the local storage, allowing you to review the history of picked numbers.
 
