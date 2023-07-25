@@ -6,7 +6,9 @@
 <body>
   <h1>Lotto Number Picker</h1>
   <button onclick="pickRandomNumbers()">Pick 6 Random Numbers</button>
-  <p>Random Numbers: <span id="randomNumbers"></span></p>
+  <button onclick="clearLocalStorage()">Clear History</button>
+  <p>All Sets of Random Numbers:</p>
+  <ul id="randomNumberList"></ul>
 
   <script>
     function pickRandomNumbers() {
@@ -25,8 +27,31 @@
       }
 
       randomNumbers.sort((a, b) => a - b); // Sort the numbers in ascending order
-      document.getElementById('randomNumbers').textContent = randomNumbers.join(', ');
+      const randomNumberList = document.getElementById('randomNumberList');
+      const listItem = document.createElement('li');
+      listItem.textContent = randomNumbers.join(', ');
+      randomNumberList.appendChild(listItem);
+
+      // Store the randomly generated numbers in local storage
+      const storedNumbers = JSON.parse(localStorage.getItem('randomNumbers')) || [];
+      storedNumbers.push(randomNumbers);
+      localStorage.setItem('randomNumbers', JSON.stringify(storedNumbers));
     }
+
+    function clearLocalStorage() {
+      // Clear the stored random numbers from local storage
+      localStorage.removeItem('randomNumbers');
+      document.getElementById('randomNumberList').innerHTML = '';
+    }
+
+    // Display all the stored random number sets on page load, if available
+    const storedSets = JSON.parse(localStorage.getItem('randomNumbers')) || [];
+    const randomNumberList = document.getElementById('randomNumberList');
+    storedSets.forEach((numbers) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = numbers.join(', ');
+      randomNumberList.appendChild(listItem);
+    });
   </script>
 </body>
 </html>
