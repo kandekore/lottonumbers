@@ -11,6 +11,7 @@ The "Lotto Number Picker" is a web application that allows you to generate sets 
 - [Clear Local Storage](#clear-local-storage)
 - [Technologies Used](#technologies-used)
 - [License](#license)
+- [Deployed App](#deployed-app)
 
 ## Features
 
@@ -47,4 +48,7 @@ If you wish to clear the stored history of generated numbers, simply click the "
 
 The "Lotto Number Picker" web application is open-source software licensed under the [MIT License](LICENSE).
 
+## Deployed App
+
+[https://kandekore.github.io/lottonumbers/](https://kandekore.github.io/lottonumbers/)
 
